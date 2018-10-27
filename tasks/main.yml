@@ -1,0 +1,4 @@
+---
+# tasks file for python2
+- import_tasks: apt-install.yml
+- import_tasks: pip2-install.yml

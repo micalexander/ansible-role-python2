@@ -1,0 +1,12 @@
+---
+- name: install pip2 packages for root
+  pip:
+    name: "{{ pip2_install }}"
+  when: pip2_install is defined and user is not defined
+- name: install pip2 packages for user "{{ user }}"
+  become: yes
+  become_user: "{{ user }}"
+  pip:
+    name: "{{ pip2_install }}"
+    extra_args: --user
+  when: pip2_install is defined and user is defined
